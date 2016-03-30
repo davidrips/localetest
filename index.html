@@ -233,11 +233,11 @@ var newYork =  new google.maps.LatLng(40.69847032728747, -73.9514422416687);
 			map.setCenter(newYork)
 		};
 
-		me = new google.maps.Marker({
+		var me = new google.maps.Marker({
 	      			map: map,
 	      			position: initialLocation,
 	      			title: 'Here I am!',
-	      			animation: google.maps.Animation.BOUNCE})
+	      			animation: google.maps.Animation.DROP})
 
 
 
