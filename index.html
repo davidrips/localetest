@@ -238,12 +238,10 @@ var newYork =  new google.maps.LatLng(40.69847032728747, -73.9514422416687);
 	      			position: initialLocation,
 	      			title: 'Here I am!',
 	      			animation: google.maps.Animation.DROP});
-		me.setMap(map);
 
-
-
-	      
 	};
+
+	me.setMap(map);
 
 	function setMapOnAll(map) {
 	  for (var i = 0; i < activeMarkers.length; i++) {
