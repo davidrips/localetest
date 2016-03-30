@@ -215,21 +215,31 @@ var newYork =  new google.maps.LatLng(40.69847032728747, -73.9514422416687);
 
 
 
-  function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), {
-      	// center: {lat: 40.728, lng: -74.078},
-      	zoom: 12
-    	});  	
+	function initMap() {
+		map = new google.maps.Map(document.getElementById('map'), {
+	      	// center: {lat: 40.728, lng: -74.078},
+	      	zoom: 12
+	    	});  	
 
-  	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-      			initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-      			console.log("got it");
-      			console.log(position.coords.latitude,position.coords.longitude);
-      			console.log(initialLocation)
-      			map.setCenter(initialLocation);
-    		})}else { console.log("didn't catch");
-		map.setCenter(newYork)}
+	  	if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+	      			initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+	      			console.log("got it");
+	      			console.log(position.coords.latitude,position.coords.longitude);
+	      			console.log(initialLocation)
+	      			map.setCenter(initialLocation);
+	    		})
+		} else { console.log("didn't catch");
+			map.setCenter(newYork)
+		};
+
+		me = new google.maps.Marker({
+	      			map: map,
+	      			position: initialLocation,
+	      			title: 'Here I am!',
+	      			animation: google.maps.Animation.BOUNCE})
+
+
 
 	      
 	};
